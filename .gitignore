@@ -11,3 +11,8 @@ wheels/
 
 # Environment files
 .env
+
+crewaicomic.md
+output/
+images/
+

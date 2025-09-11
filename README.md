@@ -90,7 +90,7 @@ python -c "import dotenv; print(dotenv.__file__)"
 
 These steps ensure the editor and the runtime use the same environment so imports like `from dotenv import load_dotenv` resolve correctly.
 
-## prompting guide and best practices
+### prompting guide and best practices
 
 Describe the scene, don't just list keywords. The model's core strength is its deep language understanding. A narrative, descriptive paragraph will almost always produce a better, more coherent image than a list of disconnected words.
 
