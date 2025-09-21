@@ -1,4 +1,5 @@
 import uvicorn
+import time
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 from typing import List, Optional
@@ -61,9 +62,12 @@ async def create_image_endpoint(request: ImageRequest):
             # Save the generated image to a file
             output_dir = Path("output")
             output_dir.mkdir(exist_ok=True)
-            # Create a unique filename
-            output_filename = f"server_generated_{Path.cwd().name}_{len(list(output_dir.glob('*.png'))) + 1}.png"
+            
+            # Use timestamp-based naming to guarantee uniqueness
+            timestamp = int(time.time() * 1000)  # milliseconds since epoch
+            output_filename = f"server_generated_{Path.cwd().name}_{timestamp}.png"
             save_path = output_dir / output_filename
+            
             generated_image.save(save_path)
             
             print(f"✅ Image successfully generated and saved to {save_path}")
